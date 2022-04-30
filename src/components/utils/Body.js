@@ -12,7 +12,7 @@ let transak = new transakSDK({
   redirectURL: '',
   hostURL: window.location.origin,
   widgetHeight: '550px',
-  widgetWidth: '450px'
+  widgetWidth: '95%'
 });
 
 let toMe = new transakSDK({
@@ -26,7 +26,7 @@ let toMe = new transakSDK({
   redirectURL: '',
   hostURL: window.location.origin,
   widgetHeight: '550px',
-  widgetWidth: '450px'
+  widgetWidth: '200px'
 });
 
  transak.on(transak.ALL_EVENTS, (data) => {

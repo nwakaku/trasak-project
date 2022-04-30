@@ -112,6 +112,7 @@ nav .nav-list li.btn:hover a {
 
 .container {
   padding-top: 100px;
+  overflow: hidden;
 }
 .container .hero-text {
   margin-bottom: 40px;
