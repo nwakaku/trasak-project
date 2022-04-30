@@ -1,20 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
+
 
 const Nav = () => {
+  const [toggle, setToggle] = useState(true);
   return (
     <header>
-      <div class="logo">
-      <i class="fa-solid fa-money-bill-transfer"></i>
+      <div className="logo">
+      <i className="fa-solid fa-money-bill-transfer"></i>
       </div>
 
       <nav>
-        <div class="hamb">
+        <div className="hamb" onClick={() => setToggle(!toggle)}>
           <span></span>
           <span></span>
           <span></span>
         </div>
 
-        <ul class="nav-list">
+        <ul className={toggle ? "nav-list" : "nav-list open"}>
           <li>
             <a href="#">Home</a>
           </li>
@@ -27,7 +29,7 @@ const Nav = () => {
           <li>
             <a href="#">Works</a>
           </li>
-          <li class="btn">
+          <li className="btn">
             <a href="#">Contact Us</a>
           </li>
         </ul>

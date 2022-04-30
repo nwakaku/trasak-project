@@ -37,11 +37,11 @@ let toMe = new transakSDK({
 const Body = () => {
   return (
     <div>
-      <div class="container">
-        <div class="hero-text">
+      <div className="container">
+        <div className="hero-text">
           <h3>Hi, There!</h3>
           <h1>
-            Welcome to <span class="input">CrytoWallet Topup.</span>
+            Welcome to <span className="input">CrytoWallet Topup.</span>
           </h1>
           <ul>
             <li>Accept payments by credit card, debit card or bank transfer</li>
@@ -49,33 +49,33 @@ const Body = () => {
             <li>Support for all major blockchains, tokens and stable-coins. 80+ cryptocurrencies in total</li>
             <li>Continuously adding new currencies, blockchains, digital assets and protocols</li>
           </ul>
-          <div class="social">
+          <div className="social">
             <a href="#">
-              <i class="fa-brands fa-facebook"></i>
+              <i className="fa-brands fa-facebook"></i>
             </a>
             <a href="#">
-              <i class="fa-brands fa-behance-square"></i>
+              <i className="fa-brands fa-behance-square"></i>
             </a>
             <a href="#">
-              <i class="fa-brands fa-whatsapp"></i>
+              <i className="fa-brands fa-whatsapp"></i>
             </a>
             <a href="#">
-              <i class="fa-brands fa-linkedin"></i>
+              <i className="fa-brands fa-linkedin"></i>
             </a>
             <a href="#">
-              <i class="fa-brands fa-pinterest"></i>
+              <i className="fa-brands fa-pinterest"></i>
             </a>
           </div>
-          <div class="forbuttons">
+          <div className="forbuttons">
             <button type="button" onClick={() => transak.init()}>Buy Self</button>
             <button type="button" onClick={() => toMe.init()}>Buy Others</button>
           </div>
         </div>
-        <div class="hero-img">
+        <div className="hero-img">
         {/* <iframe height="600" title="Transak On/Off Ramp Widget (Website)" src="https://staging-global.transak.com?apiKey=fec0443a-44f5-4890-aa3f-b09626d6485e" allowtransparency="true" allowfullscreen="" style="display: block; width: 100%; max-height: 550px; max-width: 450px; border: none;"></iframe> */}
         </div>
 
-        <div class="bottom">
+        <div className="bottom">
           <p>@ 2022 RSVP app - All Rights Reserved.</p>
         </div>
       </div>
