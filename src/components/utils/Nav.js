@@ -4,7 +4,7 @@ const Nav = () => {
   return (
     <header>
       <div class="logo">
-        <i class="fa-brands fa-weebly"></i>
+      <i class="fa-solid fa-money-bill-transfer"></i>
       </div>
 
       <nav>

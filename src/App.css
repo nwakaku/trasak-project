@@ -21,7 +21,7 @@ body {
   height: 100%;
   min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("./as.jpg");
+    url("https://www.newsbtc.com/wp-content/uploads/2020/02/head2.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -132,9 +132,9 @@ span {
   font-weight: 400;
   font-size: 17px;
 }
-.container .hero-text p {
-  width: 440px;
-  max-width: 100%;
+.container .hero-text li {
+  /* width: 440px; */
+  /* max-width: 100%; */
   color: #eee;
   font-size: 15px;
   line-height: 1.5;
