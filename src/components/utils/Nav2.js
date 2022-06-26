@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 
-const Nav = () => {
+const Nav2 = () => {
   const [toggle, setToggle] = useState(true);
   return (
     <header>
@@ -30,7 +30,7 @@ const Nav = () => {
             <a href="#">Works</a>
           </li>
           <li className="btn">
-            <a href="#">Login With Unstoppable</a>
+            <a href="#">logout</a>
           </li>
         </ul>
       </nav>
@@ -38,4 +38,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Nav2;
