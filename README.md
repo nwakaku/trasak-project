@@ -8,7 +8,7 @@ https://trasak-project.vercel.app/
 
 ### Recorded video demo of the integration (max. 3 mins)
 
-https://vimeo.com/manage/videos/724592586/privacy
+https://vimeo.com/724592586
 
 ### Person of contact in case there are any questions
 
