@@ -1,24 +1,48 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import UAuth from '@uauth/js'
 
 const uauth = new UAuth({
   clientID: "2d80cf05-1f43-48f8-9274-21f585efed45",
-  redirectUri: "http://localhost",
+  redirectUri: "http://localhost:3000/login",
 })
 
 
-const login = async () => {
-  try {
-    const authorization = await uauth.loginWithPopup()
- 
-    console.log(authorization)
-  } catch (error) {
-    console.error(error)
-  }
-}
 
 const Nav = () => {
   const [toggle, setToggle] = useState(true);
+  const [userWallet, setUserWallet] = useState(null);
+
+  const login = async () => {
+    try {
+      const authorization = await uauth.loginWithPopup()
+      window.location.reload();   
+      console.log(authorization)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  
+  const logout = () => {
+   uauth.logout();
+
+  }
+
+
+  useEffect(() => {
+    setUserWallet("Login With Unstoppable")
+    uauth.user()
+    .then((user) => {
+      setUserWallet(user.sub)
+      // user exists
+      console.log("User information:", user);
+    })
+    .catch(() => {
+      // user does not exist
+    })
+  });
+
+  
+
   return (
     <header>
       <div className="logo">
@@ -46,8 +70,14 @@ const Nav = () => {
             <a href="#">Works</a>
           </li>
           <li className="btn">
-            <a onClick={() => login()}>Login With Unstoppable</a>
+            <a onClick={() => login()}>{userWallet}</a>
           </li>
+          { userWallet ? 
+          <li className="btn">
+          <a onClick={() => logout()}>logout</a>
+        </li> :
+        null
+        }
         </ul>
       </nav>
     </header>
