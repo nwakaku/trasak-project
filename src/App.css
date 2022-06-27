@@ -103,6 +103,8 @@ nav .nav-list li.btn a {
   line-height: 1.3;
   color: gold;
   font-weight: 500;
+  cursor: pointer;
+
 }
 
 nav .nav-list li.btn:hover a {
