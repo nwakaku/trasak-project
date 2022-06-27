@@ -1,5 +1,21 @@
 import React, {useState} from "react";
+import UAuth from '@uauth/js'
 
+const uauth = new UAuth({
+  clientID: "2d80cf05-1f43-48f8-9274-21f585efed45",
+  redirectUri: "http://localhost",
+})
+
+
+const login = async () => {
+  try {
+    const authorization = await uauth.loginWithPopup()
+ 
+    console.log(authorization)
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 const Nav = () => {
   const [toggle, setToggle] = useState(true);
@@ -30,7 +46,7 @@ const Nav = () => {
             <a href="#">Works</a>
           </li>
           <li className="btn">
-            <a href="#">Login With Unstoppable</a>
+            <a onClick={() => login()}>Login With Unstoppable</a>
           </li>
         </ul>
       </nav>

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Routes, Route, Link } from "react-router-dom";
 
 
 const Nav2 = () => {
@@ -30,7 +31,7 @@ const Nav2 = () => {
             <a href="#">Works</a>
           </li>
           <li className="btn">
-            <a href="#">logout</a>
+            <Link to={'/'}>logout</Link>
           </li>
         </ul>
       </nav>
