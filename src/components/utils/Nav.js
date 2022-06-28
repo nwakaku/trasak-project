@@ -3,7 +3,7 @@ import UAuth from '@uauth/js'
 
 const uauth = new UAuth({
   clientID: "2d80cf05-1f43-48f8-9274-21f585efed45",
-  redirectUri: "https://trasak-project.vercel.app/login",
+  redirectUri: "https://trasak-project.vercel.app/",
 })
 
 
