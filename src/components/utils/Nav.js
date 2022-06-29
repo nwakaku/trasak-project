@@ -27,10 +27,6 @@ const Nav = () => {
 
   }
 
-  let reload = () => {
-    window.location.reload()
-  }
-
 
   useEffect(() => {
     setUserWallet("Login With Unstoppable")
@@ -78,7 +74,7 @@ const Nav = () => {
           </li>
           { userWallet ? 
           <li className="btn">
-          <a onClick={() => {logout();reload()}}>logout</a>
+          <a onClick={() => logout()}>logout</a>
         </li> :
         null
         }
