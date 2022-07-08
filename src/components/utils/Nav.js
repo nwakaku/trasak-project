@@ -15,7 +15,6 @@ const Nav = () => {
   const login = async () => {
     try {
       const authorization = await uauth.loginWithPopup()
-      window.location.reload();   
       console.log(authorization)
     } catch (error) {
       console.error(error)
@@ -33,13 +32,15 @@ const Nav = () => {
     uauth.user()
     .then((user) => {
       setUserWallet(user.sub)
+      window.location.reload();   
+
       // user exists
       console.log("User information:", user);
     })
     .catch(() => {
       // user does not exist
     })
-  });
+  },[userWallet]);
 
   
 
