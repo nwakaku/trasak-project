@@ -88,12 +88,9 @@ const Nav = () => {
           <li className="btn">
             <a onClick={() => login()}>{userWallet ? userWallet : "Login With Unstoppable"}</a>
           </li>
-          { userWallet ? 
           <li className="btn">
           <a onClick={() => logout()}>logout</a>
-        </li> :
-        null
-        }
+        </li> 
         </ul>
       </nav>
     </header>
