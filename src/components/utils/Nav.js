@@ -9,25 +9,6 @@ const uauth = new UAuth({
 
 
 const Nav = () => {
-  const [toggle, setToggle] = useState(true);
-  const [userWallet, setUserWallet] = useState(null);
-
-  const login = async () => {
-    try {
-      const authorization = await uauth.loginWithPopup()
-      window.location.reload();   
-      console.log(authorization)
-    } catch (error) {
-      console.error(error)
-    }
-  }
-  
-  const logout = () => {
-   uauth.logout();
-
-  }
-
-
   useEffect(() => {
     setUserWallet("Login With Unstoppable")
     uauth.user()
@@ -36,10 +17,39 @@ const Nav = () => {
       // user exists
       console.log("User information:", user);
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err)
       // user does not exist
     })
-  });
+  }, []);
+
+  const [toggle, setToggle] = useState(true);
+  const [userWallet, setUserWallet] = useState(null);
+
+  const login = async () => {
+    try {
+      const authorization = await uauth.loginWithPopup();
+      setUserWallet(authorization.sub)
+      // window.location.reload();   
+      console.log(authorization)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+
+  const logout = async () => {
+    try {
+        await uauth.logout();
+
+        setUserWallet("Login With Unstoppable");
+      } catch (error) {
+        console.error(error);
+    }
+}
+
+
+
 
   
 
