@@ -32,7 +32,7 @@ const Nav = () => {
     uauth.user()
     .then((user) => {
       setUserWallet(user.sub)
-      window.location.reload();   
+      // window.location.reload();   
 
       // user exists
       console.log("User information:", user);
