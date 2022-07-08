@@ -29,7 +29,13 @@ const Nav = () => {
   const login = async () => {
     try {
       const authorization = await uauth.loginWithPopup();
-      setUserWallet(authorization.sub)
+      uauth.user()
+      .then((user) => {
+        setUserWallet(user.sub)
+        // user exists
+        console.log("User information:", user);
+      })
+      // setUserWallet(authorization.sub)
       // window.location.reload();   
       console.log(authorization)
     } catch (error) {
