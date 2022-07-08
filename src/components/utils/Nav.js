@@ -10,7 +10,7 @@ const uauth = new UAuth({
 
 const Nav = () => {
   useEffect(() => {
-    setUserWallet("Login With Unstoppable")
+    // setUserWallet("Login With Unstoppable")
     uauth.user()
     .then((user) => {
       setUserWallet(user.sub)
@@ -42,7 +42,7 @@ const Nav = () => {
     try {
         await uauth.logout();
 
-        setUserWallet("Login With Unstoppable");
+        setUserWallet(null);
       } catch (error) {
         console.error(error);
     }
@@ -80,7 +80,7 @@ const Nav = () => {
             <a href="#">Works</a>
           </li>
           <li className="btn">
-            <a onClick={() => login()}>{userWallet}</a>
+            <a onClick={() => login()}>{userWallet ? userWallet : "Login With Unstoppable"}</a>
           </li>
           { userWallet ? 
           <li className="btn">
