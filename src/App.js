@@ -1,15 +1,16 @@
 import "./App.css";
-import { Routes, Route, Link } from "react-router-dom";
+// import { Routes, Route, Link } from "react-router-dom";
 import Landing from "./components/Landing";
 import Second from "./components/Second";
 
 function App() {
   return (
     <div>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="login" element={<Second />} />
-      </Routes>
+      </Routes> */}
+      <Landing/>
       
     </div>
   );

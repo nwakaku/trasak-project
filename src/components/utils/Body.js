@@ -1,58 +1,61 @@
-import React from "react";
-import transakSDK from "@transak/transak-sdk";
+import React, { useEffect, useState } from "react";
+import * as HyphenWidget from "@biconomy/hyphen-widget";
+import "@biconomy/hyphen-widget/dist/index.css";
 
-let transak = new transakSDK({
-  apiKey: "fec0443a-44f5-4890-aa3f-b09626d6485e", // Your API Key
-  environment: "STAGING", // STAGING/PRODUCTION
-  defaultCryptoCurrency: "ETH",
-  walletAddress: "", // Your customer's wallet address
-  themeColor: "000000", // App theme color
-  fiatCurrency: "", // INR/GBP
-  email: "", // Your customer's email address
-  redirectURL: "",
-  hostURL: window.location.origin,
-  widgetHeight: "550px",
-  widgetWidth: "95%",
-});
-
-let toMe = new transakSDK({
-  apiKey: "fec0443a-44f5-4890-aa3f-b09626d6485e", // Your API Key
-  environment: "STAGING", // STAGING/PRODUCTION
-  defaultCryptoCurrency: "ETH",
-  walletAddress: "0xc0D08b04B73BF799662D7625A62445bb00FcCe04", // Your customer's wallet address
-  themeColor: "000000", // App theme color
-  fiatCurrency: "", // INR/GBP
-  email: "", // Your customer's email address
-  redirectURL: "",
-  hostURL: window.location.origin,
-  widgetHeight: "550px",
-  widgetWidth: "100%",
-});
-
-transak.on(transak.ALL_EVENTS, (data) => {
-  console.log(data);
-});
 
 const Body = () => {
+  const [hyphenWidget, setHyphenWidget] = useState();
+
+    useEffect(() => {
+    const widget = HyphenWidget.default.init(
+      document.getElementById("widget"),
+      {
+        dAppName: "wisdom",
+        showWidget: true,
+        // showCloseButton: true,
+        tag: "wisdom",
+        env: "test",
+      }
+    );
+
+    if (widget) {
+      setHyphenWidget(widget);
+    }
+  }, []);
+
+  function handleOpen() {
+    hyphenWidget.open();
+  }
+
+  function handleClose() {
+    hyphenWidget.close();
+  }
+  const [popUp, setPopUp] = useState(true);
+
   return (
     <div>
       <div className="container">
         <div className="hero-text">
           <h3>Hi, There!</h3>
           <h1>
-            Welcome to <span className="input">CrytoWallet Topup.</span>
+            Welcome to <span className="input">CrytoSwappy Dapp.</span>
           </h1>
+          <div className={ `${popUp ? 'popup' : 'popup active'}`}>
+            <div className="overlay"></div>
+            <div className="content">
+              <div className="close-btn" onClick={() => {setPopUp(!popUp);handleClose()}}>
+            &times;
+          </div>
+          <div id="widget"></div>
+            </div>
+          </div>
           <ul>
-            <li>Accept payments by credit card, debit card or bank transfer</li>
+            {/* <li>Accept payments by credit card, debit card or bank transfer</li> */}
             <li>
               More than 100 countries and territories supported with over 60
-              currencies, so users pay in their local currency
-            </li>
-            <li>
+              currencies, so users pay in their local currency,<br/>
               Support for all major blockchains, tokens and stable-coins. 80+
-              cryptocurrencies in total
-            </li>
-            <li>
+              cryptocurrencies in total<br/>
               Continuously adding new currencies, blockchains, digital assets
               and protocols
             </li>
@@ -75,10 +78,10 @@ const Body = () => {
             </a>
           </div>
           <div className="forbuttons">
-            <button type="button" onClick={() => transak.init()}>
-              Buy Self
+            <button type="button" className="launch-button" onClick={() => {setPopUp(!popUp);handleOpen()}}>
+              Launch App
             </button>
-            <button type="button" onClick={() => toMe.init()}>
+            <button type="button" className="launch-button">
               Buy Others
             </button>
           </div>
@@ -88,7 +91,7 @@ const Body = () => {
         </div>
 
         <div className="bottom">
-          <p>@ 2022 RSVP app - All Rights Reserved.</p>
+          <p>@ 2022 CrytoSwappy app - All Rights Reserved.</p>
         </div>
       </div>
     </div>
